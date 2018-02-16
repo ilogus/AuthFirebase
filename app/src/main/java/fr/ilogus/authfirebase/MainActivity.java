@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                if(user != null){
+                if (user != null) {
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
 
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onStop(){
+    public void onStop() {
         super.onStop();
         // Supprime le Listener
         mAuth.removeAuthStateListener(mAuthListener);
@@ -82,22 +82,22 @@ public class MainActivity extends AppCompatActivity {
      * @param: String email - choisi par l'utilisateur
      * @param: String password - Mot de passe choisi par l'utilisateur
      */
-    public void register(String email, String password){
-       mAuth.createUserWithEmailAndPassword(email, password)
-               .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                   @Override
-                   public void onComplete(@NonNull Task<AuthResult> task) {
-                       Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
+    public void register(String email, String password) {
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-                       Toast.makeText(MainActivity.this, "Authentication success.",
-                               Toast.LENGTH_SHORT).show();
-
-                       if(!task.isSuccessful()) {
-                           Toast.makeText(MainActivity.this, "Authentication failed.",
+                        Toast.makeText(MainActivity.this, "Authentication success.",
                                 Toast.LENGTH_SHORT).show();
-                       }
-                   }
-               });
+
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
     }
 
     /*
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
      * @param: String email - présent sur firebase
      * @param: String password - présent sur firebase
      */
-    public void login(String email, String password){
+    public void login(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Authentication success !",
                                 Toast.LENGTH_SHORT).show();
 
-                        if(!task.isSuccessful()){
+                        if (!task.isSuccessful()) {
                             Log.v(TAG, "signInWithEmail", task.getException());
 
                             // Si il y a une erreur pendant la connexion on affiche un message failed
