@@ -9,6 +9,21 @@
  * For education and personal use.
  */
 
+/*
+ * Ajout d'un utilisateur sur Firebase :
+ *
+ * register("<EMAIL>", "<PASSWORD>");
+ *
+ * Connexion d'un utilisateur sur Firebase :
+ *
+ * login("<EMAIL>", "<PASSWORD>");
+ *
+ * Déconnexion d'un utilisateur :
+ *
+ * mAuth.signOut();
+ *
+ */
+
 package fr.ilogus.authfirebase;
 
 import android.support.annotation.NonNull;
@@ -56,12 +71,10 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-
-        //register("fakemail@google.com", "azertyuiop");
-        login("fakemail@google.com", "azertyuiop");
+        // register("fakemail@google.com", "azertyuiop");
+        // login("fakemail@google.com", "azertyuiop");
 
     }
-
 
     @Override
     public void onStart() {
@@ -126,5 +139,4 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
 }
